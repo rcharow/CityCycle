@@ -1,0 +1,23 @@
+{
+  "name": "d3_map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "start.js",
+  "dependencies": {
+    "axios": "^0.5.4",
+    "body-parser": "^1.12.4",
+    "d3": "^3.5.5",
+    "express": "^4.12.4",
+    "geojson": "^0.2.1",
+    "leaflet-realtime": "^1.1.1",
+    "leaflet.markercluster": "^0.4.0",
+    "topojson": "^1.6.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon start.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
