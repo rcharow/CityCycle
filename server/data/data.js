@@ -6,7 +6,8 @@ var cityBikeFeed = 'http://www.citibikenyc.com/stations/json'
 var getBikeFeed = function(){
 	return axios.get(cityBikeFeed)
 	.then(function (response) {
-		return geojson.parse(stationParser(response.data),{Point:['lat','lon']})
+		//return geojson.parse(stationParser(response.data),{Point:['lat','lon']})
+		return stationParser(response.data)
 	  })
 	.catch(function (response) {
 	    console.log(response)

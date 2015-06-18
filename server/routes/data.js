@@ -7,7 +7,7 @@ module.exports = router
 router.get('/',function (req, res, next){
 	data.getLiveStations()
 	.then(function (stations){
-		res.json(stations)
+		res.send(stations)
 	})
 	.catch(function (err){
 		console.log("Error getting stations", err)

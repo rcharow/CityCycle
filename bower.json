@@ -1,0 +1,19 @@
+{
+  "name": "stackathon",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rcharow/stackathon",
+  "authors": [
+    "Rachel Charow <rachel.charow@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "PruneCluster": "~1.1.0"
+  }
+}
