@@ -19,12 +19,19 @@ h1 {
 	font-family: "Lato", sans-serif;
 	font-weight: 100;
 	color: white;
-	line-height: 50px;
-	margin-left: 40px
+	// line-height: 50%;
+	margin-left: 40px;
+	height: 60px;
+	line-height: 60px;
+	white-space: nowrap;
 }
 
 footer {
 	height:10vh;
+}
+
+span {
+	font-family: "Lato", sans-serif;
 }
 
 #map, #map.leaflet-container.leaflet-fade.anim {
@@ -42,4 +49,10 @@ footer {
 
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {
 	background-color: black;
+}
+
+.leaflet-routing-container, div.leaflet-routing-alt{
+	display: none;
+	height: 0;
+	width: 0;
 }

@@ -3,39 +3,32 @@
 var map = L.map('map').setView([40.737575, -73.990573],12)
 var realtime, markers, markerOptions, icon, currentPopup, openMarker
 
-L.esri.basemapLayer('Gray').addTo(map);
+L.esri.basemapLayer('DarkGray').addTo(map);
 
-// var content = "<h4>" + station.stationName + "</h4>" + "Available Bikes: " + station.availableBikes + "<br>Available Docks: " + station.availableDocks + "<br>Updated: " + new Date()
-// realtime = L.realtime({
-// 	url: '/data',
-// 	crossOrigin: false,
-// 	type: 'json'
-// 	},{
-// 		interval: 3000,
-// 		pointsToLayer: function (feature,latlng){
-// 			console.log("feature",feature)
-//         	return L.circleMarker(latlng);
-// 		}
-// }).addTo(map)
+icon = L.AwesomeMarkers.icon({
+	icon: 'bicycle',
+	prefix: 'fa',
+	markerColor: 'black'
+})
 
 
-// realtime.on('update',function (e){
-// 	// console.log('UPDATE',e,'TIME', new Date())
-	// var popupContent = function (feature){
-	// 	// var feature = e.features[fId]
-	// 	debugger
-	// 	return "<h4>" + station.stationName + "</h4>" + "Available Bikes: " + feature.properties.availableBikes + "<br>Available Docks: " + feature.properties.availableDocks + "<br>Updated: " + new Date()
-	// }
-// 	var bindFeaturePopup = function(fId) {
-//         realtime.getLayer(fId).bindPopup(popupContent(fId));
-//     }
-//     var updateFeaturePopup = function(fId) {
-//             realtime.getLayer(fId).getPopup().setContent(popupContent(fId));
-//     }
 
-//     Object.keys(e.enter).forEach(bindFeaturePopup)
-//     Object.keys(e.update).forEach(updateFeaturePopup)
-// })
+var routeControl = L.Routing.control({
+	lineOptions: {
+		styles: [
+			{ color: '#7BBE51' }
+		]
+	},
+	show: false,
+	createMarker: function(i, wp){ 
+		return L.marker(wp.latLng,{draggable: false, icon: icon})
+	},
+    waypoints: [
+        L.latLng(40.76727216, -73.99392888),
+        L.latLng(40.68382604, -73.97632328)
+    ],
+    routeWhileDragging: true
+	}).addTo(map);
 
 var DataMarker = L.CircleMarker.extend({
 	options:{
@@ -47,11 +40,6 @@ $('div').on('click','a.leaflet-popup-close-button',function (e){
 	console.log("$ CLICK",event.target)
 })
 
-icon = L.AwesomeMarkers.icon({
-	icon: 'bicycle',
-	prefix: 'fa',
-	markerColor: 'black'
-})
 
 markerOptions = {
 	icon: icon
@@ -80,6 +68,7 @@ function getMarkerSize (){
 
 function markerClick (m){
 	openMarker = m.target
+	routeControl.getPlan().setWaypoints([])
 }
 
 function markerMouseover (m){
@@ -105,9 +94,9 @@ function update(){
 		stations.forEach(function (station){
 			var radius = getMarkerSize()
 			var options = {
-				icon: icon,color: '#000', 
+				icon: icon,color: '#7BBE51', 
 				weight: 2, 
-				fillColor: '#000', 
+				fillColor: '#7BBE51', 
 				opacity: .8, 
 				radius: radius,
 				data: { id: station.id} 
@@ -128,7 +117,7 @@ function update(){
 		})
 
 		map.addLayer(markers)
-		window.setTimeout(update,2000)
+		window.setTimeout(update,10000)
 	})
 }
 
