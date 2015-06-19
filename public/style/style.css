@@ -17,9 +17,18 @@ h1 {
   font-weight: 100;
   color: white;
   margin-left: 40px;
-  height: 60px;
-  line-height: 60px;
-  white-space: nowrap; }
+  display: inline-block;
+  vertical-align: middle; }
+
+h4 {
+  font-weight: 100;
+  margin-bottom: 5px; }
+
+hr {
+  margin-bottom: 10px;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(123, 190, 81, 0), rgba(123, 190, 81, 0.75), rgba(123, 190, 81, 0)); }
 
 footer {
   height: 10vh; }
@@ -27,14 +36,96 @@ footer {
 span {
   font-family: "Lato", sans-serif; }
 
+span.char {
+  color: white;
+  display: inline-block;
+  margin-left: -12px;
+  margin-top: 30px;
+  -webkit-transform: rotate(299deg);
+  -moz-transform: rotate(299deg);
+  -ms-transform: rotate(299deg);
+  -o-transform: rotate(299deg);
+  transform: rotate(299deg); }
+  span.char:hover {
+    color: #7BBE51;
+    cursor: pointer;
+    cursor: hand; }
+
+.options-title {
+  -webkit-transform: translate(1em, 5em);
+  -moz-transform: translate(1em, 5em);
+  -o-transform: translate(1em, 5em);
+  -ms-transform: translate(1em, 5em);
+  transform: translate(1em, 5em); }
+
 #map, #map.leaflet-container.leaflet-fade.anim {
   width: 100%;
   height: 80vh;
   margin: 0; }
 
+.options {
+  background-color: black;
+  height: 25em;
+  width: 28em;
+  border-radius: 50%;
+  position: fixed;
+  top: 29%;
+  right: -24em;
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out; }
+  .options i {
+    vertical-align: middle;
+    color: white;
+    margin-top: 30%;
+    margin-left: 10px; }
+  .options label {
+    color: white;
+    font-family: "Lato", sans-serif;
+    font-weight: 100; }
+  .options .btn.btn-radio {
+    background-color: #FFF;
+    border-color: #CCC;
+    color: #333; }
+
+.option-list {
+  margin-top: 50px; }
+
+.options-radio {
+  margin-left: 80px;
+  color: #7BBE51; }
+
+h5 {
+  margin-left: 60px;
+  color: #7BBE51;
+  font-weight: 100; }
+
+.hideOptions:hover {
+  -webkit-transform: translate(-10em, 0);
+  -moz-transform: translate(-10em, 0);
+  -o-transform: translate(-10em, 0);
+  -ms-transform: translate(-10em, 0);
+  transform: translate(-10em, 0); }
+
+.radius, .route {
+  margin-left: 65px;
+  color: white; }
+  .radius p:hover, .route p:hover {
+    color: #7BBE51;
+    cursor: pointer;
+    cursor: hand; }
+
+.route p {
+  margin-right: 6px; }
+
+.not {
+  text-decoration: line-through; }
+
 .leaflet-popup-content {
   font-family: "Lato", sans-serif;
   font-weight: 300;
+  font-size: 13px;
   color: white;
   background-color: black; }
 

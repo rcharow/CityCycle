@@ -5,6 +5,7 @@
     <script type="text/javascript" src="/libs/d3.js"></script>
     <script type="text/javascript" src="/libs/topojson.js"></script>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/leaflet.markercluster/dist/MarkerCluster.css">
@@ -13,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="/leaflet-routing-machine/dist/leaflet-routing-machine.css">
     <link rel="stylesheet" type="text/css" href="/style/style.css">
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
     <script src="//cdn.jsdelivr.net/leaflet.esri/1.0.0-rc.7/esri-leaflet.js"></script>
     
@@ -22,11 +24,30 @@
       <h1>CITY CYCLE</h1>
     </header>
     <div id="map"></div>
+    <div class="options hideOptions">
+        <div class="options-title">
+            <span class="char">OPTIONS</span>
+            
+        </div>
+        <div class="option-list">
+            <h5>STATION RADIUS</h5>
+            <div class="radius">
+                <p class="available" id="availableBikes">Available Bikes</p>
+                <p class="available not" id="availableDocks">Available Docks</p>
+            </div> 
+            <h5>ROUTING</h5>
+            <div class="route">
+                <p class="routing pull-left" id="routeOn">on</p>
+                <p class="routing not pull-left" id="routeOff">off</p>
+            </div> 
+        </div>
+    </div>
     <footer></footer>    
     <script type="text/javascript" src="/leaflet-realtime/dist/leaflet-realtime.min.js"></script>
     <script type="text/javascript" src="/leaflet.markercluster/dist/leaflet.markercluster-src.js"></script>
     <script type="text/javascript" src="/drmonty-leaflet-awesome-markers/js/leaflet.awesome-markers.js"></script>
     <script type="text/javascript" src="leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script type="text/javascript" src="/js/options.js"></script>
     <script type="text/javascript" src="/js/markers.js"></script>
     <script type="text/javascript" src="/js/update.js"></script>
     <script type="text/javascript" src="/js/mapping.js"></script>

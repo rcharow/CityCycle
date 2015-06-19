@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.5.4",
     "body-parser": "^1.12.4",
+    "bootstrap": "^3.3.5",
     "d3": "^3.5.5",
     "drmonty-leaflet-awesome-markers": "^2.0.2",
     "express": "^4.12.4",
