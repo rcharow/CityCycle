@@ -1,7 +1,7 @@
 var routeControl = L.Routing.control({
 	lineOptions: {
 		styles: [
-			{ color: '#7BBE51' }
+			{ color: '#7BBE51', opacity: 0 }
 		]
 	},
 	show: false,
@@ -23,11 +23,32 @@ $('.routing').on('click',function(){
 				mapOptions.routing = true
 			else{
 				mapOptions.routing = false	
-				routeControl.setWaypoints([])	
+				routeControl.setWaypoints([])
 			}
 		}
 	})
 })
+
+// routeControl.on('routeselected', function(r) {
+// 	var route = r.route.coordinates
+// 	var routeLine= L.polyline(route);
+//     var convertLine= routeline.toGeoJSON();
+//     console.log("ROUTE",convertLine)
+// });
+
+routeControl.on('routeselected', function(e) {
+       var route = e.route.coordinates;
+       console.log('COORDINATES',route)
+       // var routeLine= L.polyline(route);
+       // var convertLine= routeLine.toGeoJSON();
+
+      
+       $.post( "/data", { data: route } )
+       .done(function (geojson){
+       	  console.log("GEOJSON",geojson)
+       	  animateRoute(JSON.parse(JSON.stringify(geojson)))
+       })
+});
 
 function markerClick (m){
 	if(mapOptions.routing){
@@ -42,8 +63,10 @@ function markerClick (m){
 
 		mapOptions.waypoints.push(L.latLng(lat,lng))
 
-		if(mapOptions.waypoints.length === 2)
+		if(mapOptions.waypoints.length === 2){
 			routeControl.setWaypoints([mapOptions.waypoints[0],mapOptions.waypoints[1]])
+			console.log("ROUTING",routeControl.getRouter().coordinates)
+		}
 	}
 }
 

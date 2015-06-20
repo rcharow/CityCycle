@@ -1,5 +1,5 @@
 var mapOptions = {
 	radius: 'availableBikes',
-	routing: true,
+	routing: false,
 	waypoints: []
 }
