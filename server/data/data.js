@@ -45,10 +45,7 @@ function parseCoordinates (coords){
 }
 
 function convertToGeoJson (data){
-	console.log("IN CONVERT")
-	console.log("DATA",data)
 	var cleanData = parseCoordinates(data)
-	console.log("CLEAN",cleanData)
 	return geojson.parse(cleanData, {Point: ['lat', 'lng']});
 }
 

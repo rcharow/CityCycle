@@ -16,7 +16,5 @@ router.get('/',function (req, res, next){
 })
 
 router.post('/',function (req,res,next){
-	console.log("BODY",req.body)
-	// res.status(200).end()
 	res.send(data.convertToGeoJson(req.body))
 })
