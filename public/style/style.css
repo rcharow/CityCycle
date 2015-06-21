@@ -30,6 +30,10 @@ hr {
   height: 1px;
   background-image: linear-gradient(to right, rgba(123, 190, 81, 0), rgba(123, 190, 81, 0.75), rgba(123, 190, 81, 0)); }
 
+li, p {
+  font-family: "Lato", sans-serif;
+  font-weight: 100; }
+
 footer {
   height: 10vh; }
 
@@ -69,7 +73,7 @@ span.char {
   width: 28em;
   border-radius: 50%;
   position: fixed;
-  top: 29%;
+  top: 27vh;
   right: -24em;
   -webkit-transition: 1s ease-in-out;
   -moz-transition: 1s ease-in-out;

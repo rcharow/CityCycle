@@ -206,10 +206,8 @@
                 .duration(7500)
                 .attrTween("stroke-dasharray", tweenDash)
                 .each("end", function() {
-                    d3.select(this,"circle#marker.travelMarker").remove()
-                    d3.select("#svgRoute")
-                    d3.select(".leaflet-zoom-hide")
-                    d3.selectAll("circle").remove()
+                    d3.selectAll("path.leaflet-clickable").attr("stroke","#7BBE51")
+                    d3.select("svg#svgRoute").remove()
                     //d3.select(this).call(transition);// infinite loop
                 }); 
         } //end transition

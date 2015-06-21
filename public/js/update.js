@@ -28,7 +28,6 @@ function update(isInit){
 					markers.forEach(function(m,i){
 						if(m.options.data.id === station.id){
 							m._popup.setContent(getPopupContent(station))
-							// radius = Math.floor(Math.random()*20)
 							m.setRadius(radius)
 						}
 
