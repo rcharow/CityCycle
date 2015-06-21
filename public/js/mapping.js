@@ -11,7 +11,6 @@ $('.available').on('click',function(){
 		$(this).toggleClass('not')
 		if(!$(this).hasClass('not')){
 			mapOptions.radius = $(this).attr('id')
-			console.log("ID",$(this).attr('id'))	
 		}
 	})
 	update()

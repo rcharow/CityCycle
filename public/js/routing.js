@@ -1,16 +1,17 @@
 var routeControl = L.Routing.control({
 	lineOptions: {
 		styles: [
-			{ color: '#7BBE51' }
+			{ color: 'black' }
 		]
 	},
-	show: false,
+	show: true,
 	createMarker: function(i, wp){ 
-		return L.marker(wp.latLng,{draggable: false, icon: icon})
+		console.log("create marker")
+		var m = L.marker(wp.latLng,{draggable: false, clickable: true, icon: icon})
+		mapOptions.routeMarkers.push(m)
+		return m
 	},
-    waypoints: [
-        
-    ],
+    waypoints: [],
     routeWhileDragging: true
 })
 .addTo(map);
@@ -23,11 +24,45 @@ $('.routing').on('click',function(){
 				mapOptions.routing = true
 			else{
 				mapOptions.routing = false	
-				routeControl.setWaypoints([])	
+				clearRoute()
 			}
 		}
 	})
 })
+
+
+routeControl.on('routeselected', function(e) {
+       console.log("ROUTE",e.route)
+       var distance = (e.route.summary.totalDistance*0.00062137).toFixed(2)
+       mapOptions.routeMarkers.forEach(function (m,i){
+       		m.bindPopup(formatRouteContent(e.route))
+       		if(!i) m.openPopup()
+       })
+
+       $.post( "/data", { data: e.route.coordinates } )
+       .done(function (geojson){
+       	  animateRoute(JSON.parse(JSON.stringify(geojson)))
+       })
+});
+
+function formatRouteContent (route){
+	var content = ""
+	content += "<h4>Directions</h4><ul><hr>"
+	route.instructions.forEach(function (inst,i){
+		if(!i){
+			content+="<li>"
+			content+= "Travel " + inst.direction + " on " + inst.road + " - " +  (inst.distance*0.00062137).toFixed(1) + " mi"
+			content+= "</li>"
+		}else if (i!==route.instructions.length - 1){
+			content+="<li>"
+			content+= inst.type + " on " + inst.road +  " - " +  (inst.distance*0.00062137).toFixed(1) + " mi"
+			content+= "</li>"
+		}
+	})
+	content+="</ul>"
+	content+="<p>Total Distance:  " + (route.summary.totalDistance*0.00062137).toFixed(2) + " mi"
+	return content
+}
 
 function markerClick (m){
 	if(mapOptions.routing){
@@ -36,15 +71,21 @@ function markerClick (m){
 		var lng = point.lng
 
 		if(mapOptions.waypoints.length === 2){
-			mapOptions.waypoints = []
-			routeControl.setWaypoints([])
+			clearRoute()
 		}
 
 		mapOptions.waypoints.push(L.latLng(lat,lng))
 
-		if(mapOptions.waypoints.length === 2)
+		if(mapOptions.waypoints.length === 2){
 			routeControl.setWaypoints([mapOptions.waypoints[0],mapOptions.waypoints[1]])
+		}
 	}
 }
 
+function clearRoute (){
+	mapOptions.waypoints = []
+	mapOptions.routeMarkers = []
+	routeControl.setWaypoints([])
+    d3.select("svg#svgRoute").remove()
+}
 

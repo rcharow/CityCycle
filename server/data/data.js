@@ -33,6 +33,26 @@ function stationParser(data){
 	})
 }
 
+function parseCoordinates (coords){
+	var clean = []
+	for(var key in coords){
+		clean.push(coords[key])
+	}
+
+	return clean.map(function(coord){
+		return {lat: coord[0], lng: coord[1]}
+	})
+}
+
+function convertToGeoJson (data){
+	console.log("IN CONVERT")
+	console.log("DATA",data)
+	var cleanData = parseCoordinates(data)
+	console.log("CLEAN",cleanData)
+	return geojson.parse(cleanData, {Point: ['lat', 'lng']});
+}
+
 module.exports = {
+	convertToGeoJson: convertToGeoJson,
 	getLiveStations: getBikeFeed
 }

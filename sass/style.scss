@@ -36,6 +36,11 @@ hr {
     background-image: linear-gradient(to right, rgba(123, 190, 81, 0), rgba(123, 190, 81, 0.75), rgba(123, 190, 81, 0));
 }
 
+li,p {
+	font-family: "Lato", sans-serif;
+	font-weight: 100;
+}
+
 footer {
 	height:10vh;
 }
@@ -87,7 +92,7 @@ span.char {
 	width: 28em;
 	border-radius: 50%;
 	position: fixed;
-	top: 29%;
+	top: 27vh;
 	right: -24em;
 	-webkit-transition: 1s ease-in-out;
     -moz-transition: 1s ease-in-out;
@@ -175,4 +180,41 @@ h5 {
 	display: none;
 	height: 0;
 	width: 0;
+}
+
+
+/////// d3 ///////////////
+ 
+    svg {
+        position: relative;
+    }
+    path {
+        //fill: yellow;
+        stroke-width: 2px;
+        //stroke: red;
+        stroke-opacity: 1;
+    }
+    .travelMarker {
+        fill: #7BBE51;
+        opacity: 0.75;
+    }
+    .waypoints {
+        fill: black;
+        opacity: 0;
+    }
+
+.drinks {
+    stroke: black;
+    fill: red;
+}
+.lineConnect {
+    fill: none;
+    stroke: #7BBE51;
+    opacity: 1;
+}
+.locnames {
+    fill: black;
+    text-shadow: 1px 1px 1px #FFF, 3px 3px 5px #000;
+    font-weight: bold;
+    font-size: 13px;
 }
