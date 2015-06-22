@@ -24,8 +24,7 @@ router.get('/day', function (req, res,next){
 	  data = data.toString('utf8').split('\r')
 	  var row, routes = []
 	  var hour = 0
-	  // console.log("DATA",data)
-	  for(var i = 0; hour < 12;i++){
+	  for(var i = 0; hour < 10;i++){
 		  	row = data[i].split(",")
 		  	if(i!==0){
 		  	routes.push({
@@ -34,8 +33,11 @@ router.get('/day', function (req, res,next){
 		  		startLon: row[2],
 		  		endLat: row[3],
 		  		endLon: row[4]
-		  	})	  		
-		  	hour = Number(row[0].split(" ")[1].slice(0,1))
+		  	})	  	
+		  	if(row[0].split(" ")[1].slice(0,2).indexOf(":")==-1)
+		  		hour = Number(row[0].split(" ")[1].slice(0,2))
+		  	else
+		  		hour = Number(row[0].split(" ")[1].slice(0,1))
 		  }
 	  }
 

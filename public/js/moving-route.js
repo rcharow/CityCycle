@@ -8,11 +8,11 @@
     // original SVG 
     var g = svg.append("g").attr("class", "leaflet-zoom-hide");
 
-
+    animate(json)
     //read in the GeoJSON. This function is asynchronous so
     // anything that needs the json file should be within
-    d3.json("/data/points.geojson", function(collection) {
-        collection = json
+    function animate(collection) {
+        // collection = json
         // console.log("JSON",test)
         // this is not needed right now, but for future we may need
         // to implement some filtering. This uses the d3 filter function
@@ -255,7 +255,7 @@
             var point = map.latLngToLayerPoint(new L.LatLng(y, x));
             this.stream.point(point.x, point.y);
         } //end projectPoint
-    });
+    };
 
 
     // similar to projectPoint this function converts lat/long to
