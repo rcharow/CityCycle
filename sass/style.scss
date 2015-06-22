@@ -35,9 +35,10 @@ h1 {
 	display: none;
 }
 
-img{
-	width: 25px;
-	height: 25px;
+#loading{
+	width: 80px;
+	height: 80px;
+	display: none;
 }
 
 #time{
@@ -161,7 +162,7 @@ h5 {
 
 }
 
-.hideOptions {
+.hideOptions:hover {
 	-webkit-transform: translate(-10em,0);
     -moz-transform: translate(-10em,0);
     -o-transform: translate(-10em,0);
@@ -228,7 +229,7 @@ path.leaflet-clickable {
     }
     path {
         //fill: yellow;
-        stroke-width: 1px;
+        stroke-width: 2px;
         //stroke: red;
         stroke-opacity: 1;
     }
@@ -246,6 +247,13 @@ path.leaflet-clickable {
     fill: red;
 }
 .lineConnect {
+	stroke-width: 2px;
+    fill: none;
+    stroke: #7BBE51;
+    opacity: 1;
+}
+.lineConnect2 {
+	stroke-width: 1px;
     fill: none;
     stroke: #7BBE51;
     opacity: 1;
