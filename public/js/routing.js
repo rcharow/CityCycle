@@ -1,7 +1,10 @@
 var routeControl = L.Routing.control({
 	lineOptions: {
 		styles: [
-			{ color: 'black' }
+			{ 
+				color: 'black',
+				weight: 6
+			}
 		]
 	},
 	show: true,
@@ -32,15 +35,16 @@ $('.routing').on('click',function(){
 
 
 routeControl.on('routeselected', function(e) {
-       console.log("ROUTE",e.route)
+       console.log("ROUTE",e.route.coordinates)
        var distance = (e.route.summary.totalDistance*0.00062137).toFixed(2)
        mapOptions.routeMarkers.forEach(function (m,i){
        		m.bindPopup(formatRouteContent(e.route))
-       		if(!i) m.openPopup()
+       		// if(!i) m.openPopup()
        })
 
        $.post( "/data", { data: e.route.coordinates } )
        .done(function (geojson){
+       	  console.log("geojson",geojson)
        	  animateRoute(JSON.parse(JSON.stringify(geojson)))
        })
 });

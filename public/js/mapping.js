@@ -19,3 +19,5 @@ $('.available').on('click',function(){
 
 
 update(true)
+
+

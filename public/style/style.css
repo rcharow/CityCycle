@@ -10,7 +10,12 @@ header, footer {
   width: 100vh; }
 
 header {
-  height: 10vh; }
+  height: 10vh;
+  margin: 0 !important; }
+
+button {
+  bottom: 10px;
+  right: 10px; }
 
 h1 {
   font-family: "Lato", sans-serif;
@@ -19,6 +24,19 @@ h1 {
   margin-left: 40px;
   display: inline-block;
   vertical-align: middle; }
+
+.viz {
+  display: none; }
+
+#time {
+  margin-left: 40px; }
+  #time h3 {
+    font-family: "Lato", sans-serif;
+    color: white;
+    font-weight: 100; }
+
+#timeUpdate {
+  margin-left: 15px; }
 
 h4 {
   font-weight: 100;
@@ -105,7 +123,7 @@ h5 {
   color: #7BBE51;
   font-weight: 100; }
 
-.hideOptions:hover {
+.hideOptions {
   -webkit-transform: translate(-10em, 0);
   -moz-transform: translate(-10em, 0);
   -o-transform: translate(-10em, 0);
@@ -122,6 +140,11 @@ h5 {
 
 .route p {
   margin-right: 6px; }
+
+#viz:hover {
+  font-weight: bold;
+  cursor: pointer;
+  cursor: hand; }
 
 .not {
   text-decoration: line-through; }
@@ -141,11 +164,14 @@ h5 {
   height: 0;
   width: 0; }
 
+path.leaflet-clickable {
+  stroke-width: 2; }
+
 svg {
   position: relative; }
 
 path {
-  stroke-width: 2px;
+  stroke-width: 1px;
   stroke-opacity: 1; }
 
 .travelMarker {
