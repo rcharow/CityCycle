@@ -38,7 +38,7 @@ function update(isInit){
 			if(isInit)
 				map.addLayer(clusters)
 		}
-		window.setTimeout(update,10000)
+		window.setTimeout(update,2000)
 	})
 }
 
